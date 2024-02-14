@@ -1,0 +1,29 @@
+{
+  "name": "task",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "user authentication and authorization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ch3lla/vzy-user-auth.git"
+  },
+  "author": "Chukwuma Emmanuella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ch3lla/vzy-user-auth/issues"
+  },
+  "homepage": "https://github.com/ch3lla/vzy-user-auth#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.2",
+    "stripe": "^14.16.0"
+  }
+}
