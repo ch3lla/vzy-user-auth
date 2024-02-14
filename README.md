@@ -62,3 +62,7 @@ ENDPOINT_SECRET=YOUR STRIPE WEBHOOK SIGNING SECRET
 1. run `stripe login`
 2. run `stripe listen --forward-to https://vzy-user-auth-api.onrender.com/api/verifypayment/webhook`
 3. run `stripe trigger payment_intent.succeeded --override payment_intent:metadata.x-user-id=${userId}`
+
+## User Database Storage Sample
+
+![DataBase storage sample](image.png)
