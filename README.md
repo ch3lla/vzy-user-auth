@@ -1,5 +1,10 @@
 # vzy node task
 
+The formatting is slightly incorrect. Here's the corrected version:
+
+## Live URL
+[https://vzy-user-auth-api.onrender.com](https://vzy-user-auth-api.onrender.com)
+
 ## .env configuration
 ```
 PORT=YOUR PORT
@@ -52,3 +57,8 @@ ENDPOINT_SECRET=YOUR STRIPE WEBHOOK SIGNING SECRET
 ### 5. /api/verifypayment/webhook
 - **Method**: POST
 - **Description**: Webhook listener for verifying payments.
+
+## When Running Stripe CLI
+1. run `stripe login`
+2. run `stripe listen --forward-to https://vzy-user-auth-api.onrender.com/api/verifypayment/webhook`
+3. run `stripe trigger payment_intent.succeeded --override payment_intent:metadata.x-user-id=${userId}`

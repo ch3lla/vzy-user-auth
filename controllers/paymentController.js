@@ -24,6 +24,7 @@ const webhook = async (req, res) => {
     const stripe = new Stripe(process.env.STRIPE_TEST_KEY);
     const sig = req.headers['stripe-signature'];
     const endpointSecret = process.env.ENDPOINT_SECRET;
+    let user;
 
     try {
         const event = stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret);
@@ -32,12 +33,12 @@ const webhook = async (req, res) => {
             const userId = req.headers['x-user-id'] || event.data.object.metadata['x-user-id'];
             if (!userId) throw new Error('User ID not provided in request or event metadata.');
 
-            await User.findByIdAndUpdate(userId, { status: 'paid' });
+            user = await User.findByIdAndUpdate(userId, { status: 'paid' }, {new: true, select: '-password, -__v'});
         } else {
             throw new Error(`Unhandled event type: ${event.type}.`);
         }
 
-        res.status(200).send();
+        res.status(200).json({user});
     } catch (error) {
         errorHandler(error, res);
     }
