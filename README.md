@@ -1,7 +1,5 @@
 # vzy node task
 
-The formatting is slightly incorrect. Here's the corrected version:
-
 ## Live URL
 [https://vzy-user-auth-api.onrender.com](https://vzy-user-auth-api.onrender.com)
 
